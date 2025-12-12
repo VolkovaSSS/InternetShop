@@ -1,14 +1,14 @@
 import pytest
 
-from src.product import Product
 from src.category import Category
+from src.product import Product
 
 
 @pytest.fixture
 def first_category():
     return Category(
         "Смартфоны",
-        'Смартфоны, как средство не только коммуникации и получения дополнительных функций',
+        "Смартфоны, как средство не только коммуникации и получения дополнительных функций",
         [
             Product(
                 "Samsung Galaxy S23 Ultra",
