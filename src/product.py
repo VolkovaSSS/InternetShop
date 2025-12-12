@@ -1,5 +1,6 @@
 class Product:
     """Класс для описания продуктов"""
+
     name: str
     description: str
     price: float
