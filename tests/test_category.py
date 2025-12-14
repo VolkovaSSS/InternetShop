@@ -7,7 +7,7 @@ def test_category_init(first_category, second_category):
         first_category.description
         == "Смартфоны, как средство не только коммуникации и получения дополнительных функций"
     )
-    assert len(first_category.products) == 2
+    assert len(first_category.products_in_list) == 2
 
     assert Category.category_count == 2
     assert Category.product_count == 3
@@ -15,3 +15,16 @@ def test_category_init(first_category, second_category):
     assert first_category.product_count == 3
     assert second_category.category_count == 2
     assert second_category.product_count == 3
+
+
+def test_category_products_property(first_category):
+    assert (
+        first_category.products
+        == "Samsung Galaxy S23 Ultra, 180000.0 руб. 5 шт\nIphone 15, 210000.0 руб. 8 шт\n"
+    )
+
+
+def test_category_products_setter(first_category, product_test):
+    assert len(first_category.products_in_list) == 2
+    first_category.add_product(product_test)
+    assert len(first_category.products_in_list) == 3
