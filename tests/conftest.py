@@ -2,6 +2,7 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.product_iterator import ProductIterator
 
 
 @pytest.fixture
@@ -31,5 +32,15 @@ def second_category():
 
 
 @pytest.fixture
-def product_test():
+def product_test2():
     return Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+
+
+@pytest.fixture
+def product_test3():
+    return Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+
+
+@pytest.fixture
+def product_iterator_for_test(first_category):
+    return ProductIterator(first_category)
