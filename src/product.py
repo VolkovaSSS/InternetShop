@@ -18,7 +18,10 @@ class Product:
         )
 
     def __add__(self, other) -> float:
-        return round(self.quantity * self.__price + other.quantity * other.__price, 2)
+        if type(other) is Product:
+            return round(self.quantity * self.__price + other.quantity * other.__price, 2)
+        else:
+            raise TypeError
 
     @classmethod
     def new_product(cls, product_params: dict):

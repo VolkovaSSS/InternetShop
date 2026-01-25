@@ -13,3 +13,10 @@ class LawnGrass(Product):
         self.country = country
         self.germination_period = germination_period
         self.color = color
+
+    def __add__(self, other) -> float:
+
+        if type(other) is LawnGrass:
+            return round(self.quantity * self.__price + other.quantity * other.__price, 2)
+        else:
+            raise TypeError

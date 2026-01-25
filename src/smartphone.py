@@ -14,3 +14,10 @@ class Smartphone(Product):
         self.efficiency = efficiency
         self.model = model
         self.color = color
+
+    def __add__(self, other) -> float:
+
+        if type(other) is Smartphone:
+            return round(self.quantity * self.__price + other.quantity * other.__price, 2)
+        else:
+            raise TypeError
