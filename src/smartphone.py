@@ -3,6 +3,7 @@ from src.product import Product
 
 class Smartphone(Product):
     """Подкласс класса Product для описания доп. свойств смартфонов"""
+
     efficiency: float
     model: str
     memory: int
@@ -13,11 +14,12 @@ class Smartphone(Product):
         super().__init__(name, description, price, quantity)
         self.efficiency = efficiency
         self.model = model
+        self.memory = memory
         self.color = color
 
     def __add__(self, other) -> float:
 
         if type(other) is Smartphone:
-            return round(self.quantity * self.__price + other.quantity * other.__price, 2)
+            return round(self.quantity * self.price + other.quantity * other.price, 2)
         else:
             raise TypeError

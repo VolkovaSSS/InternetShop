@@ -1,5 +1,7 @@
 from src.category import Category
 from src.product import Product
+from src.smartphone import Smartphone
+from src.lawngrass import LawnGrass
 
 if __name__ == '__main__':
     smartphone1 = Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5,
@@ -81,4 +83,3 @@ if __name__ == '__main__':
         print("Возникла ошибка TypeError при добавлении не продукта")
     else:
         print("Не возникла ошибка TypeError при добавлении не продукта")
-        

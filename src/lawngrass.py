@@ -17,6 +17,6 @@ class LawnGrass(Product):
     def __add__(self, other) -> float:
 
         if type(other) is LawnGrass:
-            return round(self.quantity * self.__price + other.quantity * other.__price, 2)
+            return round(self.quantity * self.price + other.quantity * other.price, 2)
         else:
             raise TypeError
