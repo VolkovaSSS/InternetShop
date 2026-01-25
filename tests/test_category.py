@@ -10,7 +10,6 @@ def test_category_init(first_category, second_category):
         == "Смартфоны, как средство не только коммуникации и получения дополнительных функций"
     )
     assert len(first_category.products_in_list) == 2
-
     assert Category.category_count == 2
     assert Category.product_count == 3
     assert first_category.category_count == 2
@@ -43,3 +42,15 @@ def test_task_iterator(product_iterator_for_test):
     assert next(product_iterator_for_test).name == "Iphone 15"
     with pytest.raises(StopIteration):
         next(product_iterator_for_test)
+
+
+def test_category_products_wrong_type(first_category, product_test2):
+    with pytest.raises(TypeError):
+        first_category.add_product(1)
+
+
+def test_category_smartphone_setter(first_category, smartphone_test1):
+    assert len(first_category.products_in_list) == 2
+    first_category.add_product(smartphone_test1)
+    assert len(first_category.products_in_list) == 3
+    assert first_category.products_in_list[-1].name == "Samsung Galaxy S23 Ultra"
