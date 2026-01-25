@@ -3,11 +3,14 @@ from src.product import Product
 
 class LawnGrass(Product):
     """Подкласс класса Product для описания доп. свойств продуктов Трава газонная"""
+
     country: str
     germination_period: str
     color: str
 
-    def __init__(self, name, description, price, quantity, country, germination_period, color):
+    def __init__(
+        self, name, description, price, quantity, country, germination_period, color
+    ):
 
         super().__init__(name, description, price, quantity)
         self.country = country
