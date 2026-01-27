@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
     """Класс для описания продуктов"""
 
     name: str
@@ -11,6 +15,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self) -> str:
         return (
@@ -36,6 +41,13 @@ class Product:
     @price.setter
     def price(self, new_price: float):
         if new_price <= 0:
-            print("Цена не должна быть нулевая или отрицательная")
-            return
+            raise ValueError("Цена не должна быть нулевая или отрицательная")
+
         self.__price = new_price
+
+
+# product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+# product1.price = 20000
+# print(product1.price)
+# product1.price = -20000
+# print(product1.price)
