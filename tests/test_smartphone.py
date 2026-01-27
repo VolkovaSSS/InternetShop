@@ -23,4 +23,6 @@ def test_smartphone_add_wrong_type(
     smartphone_test1: Smartphone, grass_test1: LawnGrass
 ):
     with pytest.raises(TypeError):
-        return smartphone_test1 + grass_test1
+        result = smartphone_test1 + grass_test1
+    with pytest.raises(TypeError):
+        result = smartphone_test1 + 2

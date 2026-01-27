@@ -28,11 +28,14 @@ def test_new_product():
 
 def test_product_price_setter(capsys, product_test2):
 
-    with pytest.raises(ValueError):
-        product_test2.price = 0
+    product_test2.price = 0
+    message = capsys.readouterr()
+    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
 
-    with pytest.raises(ValueError):
-        product_test2.price = -100
+    product_test2.price = -100
+    message = capsys.readouterr()
+    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
+    assert product_test2.price != -100
 
     product_test2.price = 200000.0
     assert product_test2.price == 200000.0
@@ -48,4 +51,4 @@ def test_product_add(product_test2: Product, product_test3: Product):
 
 def test_product_add_wrong_type(product_test2: Product):
     with pytest.raises(TypeError):
-        return product_test2 + 1
+        result = product_test2 + 1
