@@ -48,4 +48,4 @@ def test_product_add(product_test2: Product, product_test3: Product):
 
 def test_product_add_wrong_type(product_test2: Product):
     with pytest.raises(TypeError):
-        result = product_test2 + 1
+        return product_test2 + 1
