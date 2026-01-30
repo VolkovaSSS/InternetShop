@@ -49,3 +49,8 @@ def test_product_add(product_test2: Product, product_test3: Product):
 def test_product_add_wrong_type(product_test2: Product):
     with pytest.raises(TypeError):
         return product_test2 + 1
+
+
+def test_product_zero_quantity(product_test2: Product):
+    with pytest.raises(ValueError):
+        return Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 0)
