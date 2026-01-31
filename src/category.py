@@ -39,3 +39,13 @@ class Category:
     @property
     def products_in_list(self):
         return self.__products
+
+    def middle_price(self):
+        """Вычисляет среднюю цену всех товаров категории"""
+
+        try:
+            return sum([product.price for product in self.__products]) / len(
+                self.__products
+            )
+        except ZeroDivisionError:
+            return 0

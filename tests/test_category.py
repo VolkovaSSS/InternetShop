@@ -54,3 +54,14 @@ def test_category_smartphone_setter(first_category, smartphone_test1):
     first_category.add_product(smartphone_test1)
     assert len(first_category.products_in_list) == 3
     assert first_category.products_in_list[-1].name == "Samsung Galaxy S23 Ultra"
+
+
+def test_middle_price(first_category):
+    assert first_category.middle_price() == 195000
+
+
+def test_middle_price_without_products():
+    category_without_products = Category(
+        "Телевизоры", "Современный телевизор, который позволяет наслаждаться просмотром"
+    )
+    assert category_without_products.middle_price() == 0
